@@ -1,13 +1,13 @@
-import { Pressable, Text } from "react-native"
+import { Pressable, Text, PressableProps } from "react-native"
 import globalStyles from "./globalStyles"
 
-type ThemedButtonType = {
-  title: string
+interface ThemedButtonType extends PressableProps {
+  title: string,
 }
 
-const ThemedButton: React.FC<ThemedButtonType> = ({ title }) => {
+const ThemedButton: React.FC<ThemedButtonType> = ({ title, onPress, style }) => {
  return (
-    <Pressable style={globalStyles.themedButton}>
+    <Pressable style={[globalStyles.themedButton, style]} onPress={onPress}>
       <Text style={globalStyles.themedButtonText}>{title}</Text>
     </Pressable>
   )

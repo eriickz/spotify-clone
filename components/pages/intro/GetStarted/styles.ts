@@ -17,12 +17,6 @@ export default StyleSheet.create({
   bottomContent: {
     alignItems: "center",
   },
-  leading: {
-    fontFamily: "Satoshi-Bold",
-    fontSize: 25,
-    color: "#DADADA",
-    marginBottom: 20,
-  },
   paragraph: {
     fontFamily: "Satoshi-Regular",
     fontSize: 17,

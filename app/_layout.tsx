@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Platform, View } from "react-native";
+import { Platform } from "react-native";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
@@ -16,7 +16,7 @@ if (Platform.OS === "android") {
 }
 
 export default function RootLayout() {
-  const [ready, setReady] = useState(false)
+  const [_, setReady] = useState(false)
 
   const [fontsLoaded, fontError] = useFonts({
     "Satoshi-Regular": require('../assets/fonts/Satoshi-Regular.otf'),
