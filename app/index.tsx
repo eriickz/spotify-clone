@@ -1,11 +1,12 @@
-import { View } from "react-native";
-import Spotify from "@/assets/images/spotify.svg"
-import styles from "./_styles";
+import { router, Redirect } from "expo-router"
+import { useRootNavigationState } from "expo-router"
 
 export default function Index() {
-  return (
-    <View style={styles.container}>
-      <Spotify width={196} height={59} />
-    </View>
-  );
+  const rootNavigationState = useRootNavigationState()
+  
+  if (!rootNavigationState?.key) {
+    return null
+  } 
+
+  return <Redirect href="splash" />
 }
