@@ -1,16 +1,20 @@
-import { Text, View, Image, ImageBackground } from "react-native"
+import { Text, View, Image } from "react-native"
 import AuthLayout from "../AuthLayout"
 import SpotifyLogo from "@/components/SpotifyLogo"
 import getStyles from "./styles"
 import ThemedButton from "@/components/ThemedButton"
-import ThemedBlankButton from "@/components/ThemedBlankButton"
+import { useMediaQuery } from "react-responsive"
+import RadialTop from "@/assets/images/radial-top.svg"
+import RadialBottom from "@/assets/images/radial-bottom.svg"
 
 const AuthIndexPage = () => {
-  const styles = getStyles()
+  const isSmallDevice = useMediaQuery({ maxDeviceHeight: "812" })
+  const styles = getStyles(isSmallDevice)
 
   return (
     <>
       <AuthLayout>
+        <RadialTop style={[styles.radial, styles.radialTop]} />
         <View style={styles.section}>
           <SpotifyLogo style={styles.logo} />
           <View style={styles.content}>
@@ -21,9 +25,10 @@ const AuthIndexPage = () => {
           </View>
           <View style={styles.buttonsContainer}>
             <ThemedButton style={styles.button} title="Register" />
-            <ThemedBlankButton style={[{ backgroundColor: "transparent" }, styles.button]} title="Sign In" />
+            <ThemedButton style={styles.button} title="Sign In" type="transparent" />
           </View>
         </View> 
+        <RadialBottom style={[styles.radial, styles.radialBottom]} />
         <Image style={styles.cornerImg} source={require("@/assets/images/auth-index-corner-img.png")} />
       </AuthLayout>
     </>

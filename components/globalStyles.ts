@@ -1,16 +1,11 @@
 import { StyleSheet } from "react-native";
+import GLOBAL_CONSTANTS from "@/constants/constants";
 
-export const COLORS: any = {
-  PRIMARY: "#42C83C",
-  TEXTGRAY: "#DADADA",
-  AUTHBACKGROUND: "#1C1B1B"
-}
-
-const globalStyles = StyleSheet.create({
+const getGlobalStyles = ({ buttonType, pressed }: GlobalStyleArgs = {}) => StyleSheet.create({
   themedButton: {
     width: "100%",
     height: 92,
-    backgroundColor: COLORS.PRIMARY,
+    backgroundColor: GLOBAL_CONSTANTS.COLORS[buttonType?.toUpperCase()],
     borderRadius: 30,
     alignItems: "center",
     justifyContent: "center",
@@ -20,23 +15,15 @@ const globalStyles = StyleSheet.create({
     fontSize: 22,
     color: "#F6F6F6"
   },
-  themedBlankButton: {
-    width: "100%",
-    height: 92,
-    backgroundColor: "transparent",
-    borderRadius: 30,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  blurPressable: ({ pressed }) => ({
+  blurPressable: {
     alignItems: "center",
     opacity: pressed ? 0.9 : 1
-  }),
+  },
   blurPressableContainer: {
     maxWidth: 73,
     minHeight: 73,
     maxHeight: 73,
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    backgroundColor: "rgba(0, 0, 0, 0.70)",
     padding: 20,
     borderRadius: 100,
     marginBottom: 20,
@@ -48,10 +35,10 @@ const globalStyles = StyleSheet.create({
     top: 50,
   },
   blurPressableText: {
-    color: COLORS.TEXTGRAY,
+    color: GLOBAL_CONSTANTS.COLORS.TEXT_GRAY,
     fontFamily: "Satoshi-Medium",
     fontSize: 18
   }
 })
 
-export default globalStyles
+export default getGlobalStyles

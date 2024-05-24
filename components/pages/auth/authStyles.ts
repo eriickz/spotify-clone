@@ -1,10 +1,10 @@
-import { COLORS } from "@/components/globalStyles"
+import GLOBAL_CONSTANTS from "@/constants/constants"
 import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
   layout: {
     flex: 1,
-    backgroundColor: COLORS.AUTHBACKGROUND,
+    backgroundColor: GLOBAL_CONSTANTS.COLORS.AUTH_BACKGROUND,
     paddingHorizontal: 30,
     paddingVertical: 36,
   },

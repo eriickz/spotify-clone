@@ -1,27 +1,34 @@
-import { ReactNode } from "react";
-import { Pressable, PressableProps, Text, View } from "react-native";
-import { BlurView } from "expo-blur";
+import { FC, ReactNode } from "react";
+import { Pressable, Text, View, PressableStateCallbackType } from "react-native";
 import SelectedGlow from "@/assets/images/selected-mode-glow.svg"
-import globalStyles from "./globalStyles";
+import getGlobalStyles from "./globalStyles";
+import GLOBAL_CONSTANTS from "@/constants/constants";
 
-interface BlurPressableProps extends PressableProps {
-  children: ReactNode,
+interface BlurPressableProps {
+  children: ReactNode
   showGlow?: boolean,
   title: string
 }
 
-const BlurPressable: React.FC<BlurPressableProps> = ({ children, showGlow, title }) => {
+const BlurPressable: FC<BlurPressableProps> = ({ children, showGlow, title }) => {
+  const styles = getGlobalStyles()
+
+  const pressableStyles = ({ pressed }: PressableStateCallbackType) => [
+    { opacity: pressed ? GLOBAL_CONSTANTS.BUTTON_PRESSED_OPACITY : 1 },
+    styles.blurPressable,
+  ]
+
   return (
     <View>
-      <Pressable style={evt => globalStyles.blurPressable(evt)}>
-        <BlurView intensity={87} tint="dark" experimentalBlurMethod="dimezisBlurView" style={globalStyles.blurPressableContainer}>
+      <Pressable style={pressableStyles}>
+        <View style={styles.blurPressableContainer}>
           {children}
-        </BlurView>
+        </View>
         {showGlow && (
-          <SelectedGlow style={globalStyles.selectedGlow} />
+          <SelectedGlow style={styles.selectedGlow} />
         )}
       </Pressable>
-      <Text style={globalStyles.blurPressableText}>{title}</Text>
+      <Text style={styles.blurPressableText}>{title}</Text>
     </View>
   )
 }

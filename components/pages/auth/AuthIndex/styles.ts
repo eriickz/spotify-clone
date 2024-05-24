@@ -1,9 +1,6 @@
 import { StyleSheet } from "react-native";
-import { Dimensions } from "react-native";
 
-const { width, height } = Dimensions.get("window")
-
-export default () =>  StyleSheet.create({
+export default (isSmallDevice: boolean) =>  StyleSheet.create({
   section: {
     marginTop: 110, 
     justifyContent: "center",
@@ -38,11 +35,26 @@ export default () =>  StyleSheet.create({
     zIndex: 2,
   },
   button: {
-    width: 180,
+    width: "50%",
   },
   cornerImg: {
-    top: width - 480,
+    top: isSmallDevice ? -170 : -70,
     left: -35,
     zIndex: -1
+  },
+  radial: {
+    position: "absolute",
+    opacity: 0.5
+  },
+  radialTop: {
+    top: isSmallDevice ? -30 :-60,
+    right: isSmallDevice ? -10 : -10,
+    zIndex: -1,
+    minHeight: 300,
+  },
+  radialBottom: {
+    minHeight: 390,
+    bottom: isSmallDevice ? -50 : 0,
+    right: isSmallDevice ? -20 : 0,
   }
 })

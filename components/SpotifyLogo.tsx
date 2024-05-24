@@ -2,7 +2,7 @@ import Spotify from "@/assets/images/spotify.svg"
 import { ImageProps } from "react-native-svg"
 
 interface SpotifyLogoProps extends ImageProps {
-  style: any
+  style?: any
 }
 
 const SpotifyLogo: React.FC<SpotifyLogoProps> = ({ style }) => {
