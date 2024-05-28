@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
-import GLOBAL_CONSTANTS from "@/constants/constants";
+import { COLORS } from "@/constants/constants";
 
 const getGlobalStyles = ({ buttonType, pressed }: GlobalStyleArgs = {}) => StyleSheet.create({
   themedButton: {
     width: "100%",
     height: 92,
-    backgroundColor: GLOBAL_CONSTANTS.COLORS[buttonType?.toUpperCase()],
+    backgroundColor: COLORS[buttonType?.toUpperCase() as "PRIMARY"],
     borderRadius: 30,
     alignItems: "center",
     justifyContent: "center",
@@ -17,7 +17,8 @@ const getGlobalStyles = ({ buttonType, pressed }: GlobalStyleArgs = {}) => Style
   },
   blurPressable: {
     alignItems: "center",
-    opacity: pressed ? 0.9 : 1
+    opacity: pressed ? 0.9 : 1,
+    backgroundColor: "transparent"
   },
   blurPressableContainer: {
     maxWidth: 73,
@@ -35,7 +36,7 @@ const getGlobalStyles = ({ buttonType, pressed }: GlobalStyleArgs = {}) => Style
     top: 50,
   },
   blurPressableText: {
-    color: GLOBAL_CONSTANTS.COLORS.TEXT_GRAY,
+    color: COLORS.TEXT_GRAY,
     fontFamily: "Satoshi-Medium",
     fontSize: 18
   }

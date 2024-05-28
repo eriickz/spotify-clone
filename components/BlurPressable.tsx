@@ -1,8 +1,8 @@
 import { FC, ReactNode } from "react";
-import { Pressable, Text, View, PressableStateCallbackType } from "react-native";
+import { Text, View } from "react-native";
 import SelectedGlow from "@/assets/images/selected-mode-glow.svg"
 import getGlobalStyles from "./globalStyles";
-import GLOBAL_CONSTANTS from "@/constants/constants";
+import ThemedButton from "@/components/ThemedButton";
 
 interface BlurPressableProps {
   children: ReactNode
@@ -13,21 +13,16 @@ interface BlurPressableProps {
 const BlurPressable: FC<BlurPressableProps> = ({ children, showGlow, title }) => {
   const styles = getGlobalStyles()
 
-  const pressableStyles = ({ pressed }: PressableStateCallbackType) => [
-    { opacity: pressed ? GLOBAL_CONSTANTS.BUTTON_PRESSED_OPACITY : 1 },
-    styles.blurPressable,
-  ]
-
   return (
     <View>
-      <Pressable style={pressableStyles}>
+      <ThemedButton style={styles.blurPressable}>
         <View style={styles.blurPressableContainer}>
           {children}
         </View>
         {showGlow && (
           <SelectedGlow style={styles.selectedGlow} />
         )}
-      </Pressable>
+      </ThemedButton>
       <Text style={styles.blurPressableText}>{title}</Text>
     </View>
   )

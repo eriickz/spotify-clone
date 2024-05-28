@@ -1,6 +1,6 @@
 type ButtonTypeOpts = "primary" | "transparent" | "icon"
 
 interface GlobalStyleArgs {
-  buttonType: ButtonTypeOpts,
-  pressed: boolean
+  buttonType?: ButtonTypeOpts,
+  pressed?: boolean
 }

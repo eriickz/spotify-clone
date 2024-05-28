@@ -1,18 +1,19 @@
 //@ts-nocheck
 import { Pressable, Text, PressableProps, PressableStateCallbackType } from "react-native"
-import GLOBAL_CONSTANTS from "@/constants/constants"
+import { BUTTON_PRESSED_OPACITY } from "@/constants/constants"
 import getGlobalStyles from "./globalStyles"
+import { FC } from "react"
 
 interface ThemedButtonType extends PressableProps {
-  title: string,
+  title?: string,
   type?: ButtonTypeOpts 
 }
 
-const ThemedButton: React.FC<ThemedButtonType> = ({ title, onPress, style, type = "primary" }) => {
+const ThemedButton: FC<ThemedButtonType> = ({ title, onPress, style, type = "primary", children }) => {
   const styles = getGlobalStyles({ buttonType: type })
 
   const pressableStyles = ({ pressed }: PressableStateCallbackType) => [
-    { opacity: pressed ? GLOBAL_CONSTANTS.BUTTON_PRESSED_OPACITY : 1 },
+    { opacity: pressed ? BUTTON_PRESSED_OPACITY : 1 },
     styles.themedButton,
     style
   ]
@@ -22,7 +23,8 @@ const ThemedButton: React.FC<ThemedButtonType> = ({ title, onPress, style, type 
       style={pressableStyles}
       onPress={onPress}
     >
-      <Text style={styles.themedButtonText}>{title}</Text>
+      {title && <Text style={styles.themedButtonText}>{title}</Text>}
+      {children && children}
     </Pressable>
   )
 }
