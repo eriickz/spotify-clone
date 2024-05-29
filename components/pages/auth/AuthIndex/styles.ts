@@ -35,7 +35,7 @@ export default (isSmallDevice: boolean) =>  StyleSheet.create({
     zIndex: 2,
   },
   button: {
-    width: "50%",
+    width: "5%",
   },
   cornerImg: {
     top: isSmallDevice ? -170 : -70,

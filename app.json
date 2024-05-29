@@ -4,7 +4,7 @@
     "slug": "spotify-clone",
     "version": "1.0.0",
     "orientation": "portrait",
-    "scheme": "myapp",
+    "scheme": "spotify-clone",
     "userInterfaceStyle": "automatic",
     "splash": {
       "backgroundColor": "#ffffff",
@@ -14,10 +14,13 @@
     },
     "plugins": [
       "expo-router",
-      "expo-asset",
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "android": {
+      "package": "com.eriickz.spotifyclone"
     }
   }
 }

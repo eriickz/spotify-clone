@@ -6,12 +6,13 @@ import ThemedButton from "@/components/ThemedButton"
 import { useMediaQuery } from "react-responsive"
 import RadialTop from "@/assets/images/radial-top.svg"
 import RadialBottom from "@/assets/images/radial-bottom.svg"
-import { useRouter } from "expo-router";
+import useAuth from "./hooks/useAuth";
 
 const AuthIndexPage = () => {
   const isSmallDevice = useMediaQuery({ maxDeviceHeight: "812" })
   const styles = getStyles(isSmallDevice)
-  const router = useRouter()
+  
+  const { promptAsync } = useAuth()
   
   return (
     <AuthLayout>
@@ -25,12 +26,9 @@ const AuthIndexPage = () => {
           </Text>
         </View>
         <View style={styles.buttonsContainer}>
-          <ThemedButton style={styles.button} title="Register" />
           <ThemedButton
-            style={styles.button}
             title="Sign In"
-            type="transparent"
-            onPress={() => router.navigate("/auth/sign-in")}
+            onPress={() => promptAsync()}
           />
         </View>
       </View>
