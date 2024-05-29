@@ -10,7 +10,7 @@ const colorScheme = Appearance.getColorScheme()
 const Splash = () => {
   useEffect(() => {
     setTimeout(() => {
-      router.replace("get-started")
+      router.replace("/app")
     }, 2500)
   }, [])
 
