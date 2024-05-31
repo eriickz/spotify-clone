@@ -1,4 +1,4 @@
-type ButtonTypeOpts = "primary" | "transparent" | "icon"
+type ButtonTypeOpts = "primary" | "secondary" | "transparent" | "icon"
 
 interface GlobalStyleArgs {
   buttonType?: ButtonTypeOpts,

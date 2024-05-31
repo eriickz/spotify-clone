@@ -5,7 +5,7 @@ export default StyleSheet.create({
   layout: {
     flex: 1,
     backgroundColor: COLORS.AUTH_BACKGROUND,
-    padding: 32
+    padding: 32,
   },
   header: {
     flexDirection: "row",
@@ -66,5 +66,12 @@ export default StyleSheet.create({
     backgroundColor: COLORS.PRIMARY,
     position: "absolute",
     top: 0
+  },
+  appButton: {
+    padding: 9,
+    width: 30,
+    height: 30,
+    justifyContent: "center",
+    alignItems: "center"
   }
 })
